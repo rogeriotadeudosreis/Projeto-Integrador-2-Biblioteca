@@ -1,0 +1,4 @@
+1;09888086847;ROGERIO REIS;rogerio.rtr46@gmail.com;(62)99999-9999;3;0;12354;123456;
+103;80745520120;rosoaldo de oliveira;oliveira@gmail.com;(62)-99999-9999;0;0;12354;123456;
+105;67914362042;rosinaldo de castro;castro@gmail.com;(11)-99999-9999;3;0;0;123456;
+107;90339704063;silverio costa;costa@gmail.com;(11)-99999-9999;2;0;0;123456;

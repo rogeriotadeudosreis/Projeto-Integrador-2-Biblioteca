@@ -1,0 +1,3 @@
+3;EDITORA ABRIL e maio;
+66;Editora juruá;
+102;Editora Mundo;
