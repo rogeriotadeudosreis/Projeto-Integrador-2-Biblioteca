@@ -144,7 +144,8 @@ public class Livro implements Comparable<Livro> {
         this.anoDePublicacao = anoDePublicacao;
     }
 
-    public String toString() {
+    @Override
+    public String toString(){
         String saida = id + ";";
         saida += isbn + ";";
         saida += tituloLivro + ";";

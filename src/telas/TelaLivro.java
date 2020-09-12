@@ -25,12 +25,14 @@ import javax.swing.table.DefaultTableModel;
  * @author roger
  */
 public class TelaLivro extends javax.swing.JDialog {
-ControleLivro livroControle = null;
+
+    ControleLivro livroControle = null;
     Livro livro = null;
     Livro livroAnterior = null;
     ControleAutor autorControle = null;
     ControleEditora editoraControle = null;
     ControleArea areaControle = null;
+
     /**
      * Creates new form TelaLivro
      */
@@ -39,9 +41,9 @@ ControleLivro livroControle = null;
         initComponents();
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         jButtonPesquisarLivro.setEnabled(false);
-        
+
         jTextFieldTitulo.requestFocus();
-        
+
         jFormattedTextFieldISBN.setEnabled(false);
         jTextFieldTitulo.setEnabled(false);
         jTextField1SubTitulo.setEnabled(false);
@@ -52,8 +54,8 @@ ControleLivro livroControle = null;
         jTextFieldAnoPublic.setEnabled(false);
         jButtonIncluirLivro.setEnabled(false);
         jButtonSalvarAlteracao.setEnabled(false);
-        
-         try {
+
+        try {
             livroControle = new ControleLivro("livro.txt");
             livroAnterior = new Livro();
             livro = new Livro();
@@ -64,30 +66,30 @@ ControleLivro livroControle = null;
                 Autor aux = listaDeAutores.get(pos);
                 jComboBoxAutor.addItem(aux.getId() + "-" + aux.getNomeAutor().toUpperCase());
             }
-            
+
             editoraControle = new ControleEditora("Editoras.txt");
             ArrayList<Editora> listaDeEditoras = editoraControle.recuperar();
             for (int pos = 0; pos < listaDeEditoras.size(); pos++) {
                 Editora aux = listaDeEditoras.get(pos);
                 jComboBoxEditora.addItem(aux.getId() + "-" + aux.getDescricaoEditora().toUpperCase());
             }
-            
+
             areaControle = new ControleArea("areaCdd.txt");
             ArrayList<AreaCdd> listaDeArea = areaControle.recuperar();
             for (int pos = 0; pos < listaDeArea.size(); pos++) {
                 AreaCdd aux = listaDeArea.get(pos);
                 jComboBoxAreaDoLivro.addItem(aux.getId() + "-" + aux.getCdd() + "-" + aux.getDescricaoDaArea().toUpperCase());
             }
-            
+
             limparCampos();
             imprimirDadosDoLivroGrid(livroControle.recuperar());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
-        
+
     }
-    
-     public void habilitaCampos(){
+
+    public void habilitaCampos() {
         jFormattedTextFieldISBN.setEnabled(true);
         jTextFieldTitulo.setEnabled(true);
         jTextField1SubTitulo.setEnabled(true);
@@ -97,9 +99,9 @@ ControleLivro livroControle = null;
         jTextFieldEdicao.setEnabled(true);
         jTextFieldAnoPublic.setEnabled(true);
     }
-    
-    public void desabilitaCampos(){
-         jFormattedTextFieldISBN.setEnabled(false);
+
+    public void desabilitaCampos() {
+        jFormattedTextFieldISBN.setEnabled(false);
         jTextFieldTitulo.setEnabled(false);
         jTextField1SubTitulo.setEnabled(false);
         jComboBoxAutor.setEnabled(false);
@@ -159,7 +161,7 @@ ControleLivro livroControle = null;
     }
 
     public void limparCampos() {
-        
+
         jFormattedTextFieldISBN.setText("");
         jTextFieldTitulo.setText("");
         jTextField1SubTitulo.setText("");
@@ -621,15 +623,15 @@ ControleLivro livroControle = null;
     }//GEN-LAST:event_jTableCadastroDeLivrosKeyReleased
 
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
-    try {
-        limparCampos();
-        imprimirDadosDoLivroGrid(livroControle.recuperar());
-        jFormattedTextFieldISBN.requestFocus();
-        jButtonIncluirLivro.setEnabled(true);
-    } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage());
+        try {
+            limparCampos();
+            imprimirDadosDoLivroGrid(livroControle.recuperar());
+            jFormattedTextFieldISBN.requestFocus();
+            jButtonIncluirLivro.setEnabled(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
 
-    }
+        }
     }//GEN-LAST:event_jButtonLimparActionPerformed
 
     private void jButtonSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarAlteracaoActionPerformed
@@ -655,7 +657,7 @@ ControleLivro livroControle = null;
             livro.setArea(auxArea);
 
             int opcao = JOptionPane.showConfirmDialog(null, "Deseja alterar "
-                + livroAnterior.getTituloLivro() + "?");
+                    + livroAnterior.getTituloLivro() + "?");
             // Este if verifica a minha opção de escolha dentro da caixa de diálogo do jPane
             if (opcao == 0) {
 
@@ -691,8 +693,8 @@ ControleLivro livroControle = null;
 
     private void jButtonIncluirNovoAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirNovoAutorActionPerformed
         try {
-           new TelaAutor(null, true).setVisible(true);
-          this.setVisible(true);
+            new TelaAutor(null, true).setVisible(true);
+            this.setVisible(true);
 
         } catch (Exception e) {
         }
@@ -700,8 +702,8 @@ ControleLivro livroControle = null;
 
     private void jButtonIncluirNovaEditoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirNovaEditoraActionPerformed
         try {
-           new TelaEditora(null, true).setVisible(true);
-           this.setVisible(true);
+            new TelaEditora(null, true).setVisible(true);
+            this.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(TelaLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -749,12 +751,12 @@ ControleLivro livroControle = null;
     }//GEN-LAST:event_jTextFieldPesquisarFocusLost
 
     private void jButtonPesquisarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarLivroActionPerformed
-        
+
         try {
             imprimirDadosDoLivroGrid(livroControle.pesquisar(jTextFieldPesquisar.getText()));
             jTextFieldPesquisar.requestFocus();
             jTextFieldPesquisar.setText("");
-            
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
             jTextFieldPesquisar.requestFocus();
